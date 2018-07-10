@@ -23,11 +23,11 @@ it("should begin in a loading state", () => {
 });
 
 it("should begin with a blank list of items", () =>  {
-  expect(shallowNode.state(displayList)).toEqual([]);
+  expect(shallowNode.state("displayList")).toEqual([]);
 });
 
 it("should render a list of items", () =>  {
-
+  expect(shallowNode.contains(<SortableDisplayList />)).toEqual(true);
 });
 
 it("should begin with a displayed list equal to the empty list", () =>  {
