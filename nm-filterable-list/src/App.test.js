@@ -31,6 +31,10 @@ it("should begin without a display list, ie: not display a list when isLoading i
   expect(shallowNode.contains(<FilterableDisplayList displayList={[]} />)).toEqual(false);
 });
 
+it("should begin with a loading icon", () => {
+  expect(shallowNode.contains(<CustomThrobber />)).toEqual(true);
+});
+
 it("should begin without a filter input element", () => {
   expect(shallowNode.find("input").length).toEqual(0);
 });
