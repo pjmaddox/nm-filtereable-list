@@ -3,12 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@dicebear/avatars": "^2.0.3",
+    "@dicebear/avatars-identicon-sprites": "^1.0.3",
     "axios": "^0.18.0",
     "concurrently": "^3.6.0",
     "express": "^4.16.3",
+    "rapidapi-connect": "0.0.6",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "unirest": "^0.5.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -21,5 +25,6 @@
   "devDependencies": {
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1"
-  }
+  },
+  "proxy": "http://localhost:5000/agents"
 }

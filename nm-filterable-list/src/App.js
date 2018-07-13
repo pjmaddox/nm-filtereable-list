@@ -13,17 +13,24 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // fetch('/users')
-    //   .then(res => res.json())
-    //   .then(users => this.setState({ users }));
+    this.getNewAgentSet();
   }
 
   getNewAgentSet() {
-    //TODO
+    this.setState({isLoading: true});
+
+    fetch('/agents')
+      .then(res => {
+        console.log(res.json());
+        return res.json();
+      })
+      .then(agentsArray => {
+        this.setAgentList(agentsArray);
+      });
   }
 
-  setAgentList() {
-    //TODO
+  setAgentList(newAgents) {
+    this.setState({ itemList: newAgents, isLoading: false });
   }
 
   render() {

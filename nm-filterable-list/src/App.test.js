@@ -7,10 +7,15 @@ import FilterableDisplayList from './components/FilterableDisplayList.jsx'
 
 configure({ adapter: new Adapter() });
 
-let shallowNode;
+let shallowNode, mockAgentData;
 
 beforeEach(() => {
   shallowNode = shallow(<App />);
+  mockAgentData = [
+    { codeName: "agentCodeName1", agentImage: "agentImage1" },
+    { codeName: "agentCodeName2", agentImage: "agentImage2" },
+    { codeName: "agentCodeName3", agentImage: "agentImage3" }
+  ];
 });
 
 it('renders without crashing', () => {
@@ -51,3 +56,8 @@ it("should begin without a display list, ie: not display a list when isLoading i
   expect(shallowNode.contains(<FilterableDisplayList displayList={[]} />)).toEqual(false);
 });
 
+it("should change set the itemList to parameter when setAgentList is called", () => {
+  shallowNode.setAgentList(mockAgentData);
+
+  expect(shallowNode.state("itemList")).toEqual(mockAgentData);
+})
