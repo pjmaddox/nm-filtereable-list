@@ -7,7 +7,9 @@
     "@dicebear/avatars-identicon-sprites": "^1.0.3",
     "axios": "^0.18.0",
     "concurrently": "^3.6.0",
+    "cors": "^2.8.4",
     "express": "^4.16.3",
+    "lodash": "^4.17.10",
     "rapidapi-connect": "0.0.6",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
@@ -26,5 +28,5 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1"
   },
-  "proxy": "http://localhost:5000/agents"
+  "proxy": "http://localhost:5000/"
 }

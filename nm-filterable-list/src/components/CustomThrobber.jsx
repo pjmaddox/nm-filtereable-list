@@ -6,7 +6,7 @@ class CustomThrobber extends Component {
         return (
             <div className="customThrobberContainer">
                 <div>
-                    <img src={loaderGif} style={{width: "200px", height: "200px"}}/>
+                    <img src={loaderGif} alt="Sonar-Loading-Gif" style={{width: "200px", height: "200px"}}/>
                 </div>
                 <div>
                     Retreiving known field agent data...

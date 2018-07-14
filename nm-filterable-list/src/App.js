@@ -19,13 +19,13 @@ class App extends Component {
   getNewAgentSet() {
     this.setState({isLoading: true});
 
-    fetch('/agents')
+    fetch('/api/agents')
       .then(res => {
-        console.log(res.json());
         return res.json();
       })
-      .then(agentsArray => {
-        this.setAgentList(agentsArray);
+      .then(json => {
+        console.log(json);
+        this.setAgentList(json.results);
       });
   }
 

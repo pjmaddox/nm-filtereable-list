@@ -6,10 +6,10 @@ class SpyItem extends Component {
     render() {
         return (
             <div className="spyItemContainer row">
-                <div className="col-sm-4">
+                <div className="col-md-4 col-sm-12">
                     { /* avatar placeholder */ }
                 </div>
-                <div className="col-sm-8">
+                <div className="col-md-8 col-sm-12">
                     <SpyProfileRow 
                         rowLabel={"Code Name: "}
                         rowValue={this.props.codeName}

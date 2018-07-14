@@ -17,11 +17,17 @@ app.get('/api/hello', (req, res) => {
 let agents = [];
 ///Returns an array of objects of form:
 ///{ codeName: string, agentImage: svgElement }
-app.get('/agents', (req, res) => {
+app.get('/api/agents', (req, res) => {
+  console.log("Made it into correct area!");
   const agentsToGenerate = 10;
-  for(var i = 0; i < agentsToGenerate; ++i) {
-    getRandomWord(res, agentsToGenerate);
-  }
+  res.send({ results: [
+    { codeName: "asdasd3", agentImage: "image3" },
+    { codeName: "asdasd1", agentImage: "image1" },
+    { codeName: "asdasd2", agentImage: "image2" }    
+  ]});
+  // for(var i = 0; i < agentsToGenerate; ++i) {
+  //   getRandomWord(res, agentsToGenerate);
+  // }
 });
 
 let avatars = new Avatars(SpriteCollection);

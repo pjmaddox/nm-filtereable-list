@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import SpyItem from './SpyItem';
+import _ from "lodash";
 
 class FilterableDisplayList extends Component {
     constructor(props) {
@@ -10,7 +11,7 @@ class FilterableDisplayList extends Component {
         };
     }
     render() {
-        let things = (this.props.displayList.length==0)? <span>No items in the list based on your search parameters =(</span> 
+        let things = (this.props.displayList.length===0)? <span>No items in the list based on your search parameters =(</span> 
             : this.props.displayList.map((item, index) => (
                 <SpyItem key={"item" + index} codeName={item.codeName}/>
             ));
