@@ -14,10 +14,10 @@ class SpyItem extends Component {
                         rowLabel={"Code Name: "}
                         rowValue={this.props.codeName}
                     />
-                    <SpyProfileRow 
+                    {/* <SpyProfileRow 
                         rowLabel={"Origin: "}
                         rowValue={this.props.countryOfOrigin}
-                    />
+                    /> */}
                 </div>
             </div>
         );
@@ -26,7 +26,7 @@ class SpyItem extends Component {
 
 SpyItem.propTypes = {
     codeName: PropTypes.string.isRequired,
-    countryOfOrigin: PropTypes.string.isRequired
+    //countryOfOrigin: PropTypes.string.isRequired
 }
 
 export default SpyItem;

@@ -20,10 +20,11 @@ let agents = [];
 app.get('/api/agents', (req, res) => {
   console.log("Made it into correct area!");
   const agentsToGenerate = 10;
+  let avatars = new Avatars(SpriteCollection);
   res.send({ results: [
-    { codeName: "asdasd3", agentImage: "image3" },
-    { codeName: "asdasd1", agentImage: "image1" },
-    { codeName: "asdasd2", agentImage: "image2" }    
+    { codeName: "asdasd3", agentImage: avatars.create("asdasd1") },
+    { codeName: "asdasd1", agentImage: avatars.create("asdasd2") },
+    { codeName: "asdasd2", agentImage: avatars.create("asdasd3") }    
   ]});
   // for(var i = 0; i < agentsToGenerate; ++i) {
   //   getRandomWord(res, agentsToGenerate);
