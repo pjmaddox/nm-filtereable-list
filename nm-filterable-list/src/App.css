@@ -26,3 +26,59 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.avatarContainer {
+  position: relative;
+  margin: auto;
+}
+
+svg {
+  position: relative;
+  top: 0;
+  left: 0;
+  margin: auto;
+}
+
+.spyItemContainer {
+  padding-top: 3%;
+  padding-bottom: 3%;
+  border: 1px solid black;
+}
+
+/* Large Screens */
+@media (min-width: 800px) {
+  .spyItemContainer {
+    /* max-height: 100px; */
+  }
+
+  .avatarContainer svg {
+    height: 100px;
+    display: block;
+  }
+}
+
+/* Medium Screens */
+@media (min-width: 400px) {
+  .spyItemContainer {
+    /* Determine reasonable max height here */
+  }
+
+  .avatarContainer svg {
+    height: 100px;
+  }
+}
+
+/* Small Screens */
+@media (max-width: 399px) {
+  .spyItemContainer {
+    max-height: 100px;
+  }
+
+  .avatarContainer {
+    width:50%;
+  }
+
+  .avatarContainer svg {
+    height: 100px;
+  }
+}

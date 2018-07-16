@@ -37,8 +37,10 @@ class App extends Component {
     let displayList = (this.state.isLoading? <CustomThrobber /> : <FilterableDisplayList displayList={this.state.itemList} />);
     return (
       <div className="App container">
-        <header className="App-header">
+        <header className="App-header row">
+        <div className="col-sm-12">
           <h1 className="App-title">Field Agent Database</h1>
+        </div>
         </header>
         <div className="row">
           <div className="col-sm-12">

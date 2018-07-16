@@ -7,13 +7,13 @@ class FilterableDisplayList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            sortOrder: "alpha-ascending"
+            sortOrder: "asc"
         };
     }
     render() {
         let things = (this.props.displayList.length===0)? <span>No items in the list based on your search parameters =(</span> 
             : this.props.displayList.map((item, index) => (
-                <SpyItem key={"item" + index} codeName={item.codeName}/>
+                <SpyItem key={"item" + index} codeName={item.codeName} spyImage={item.agentImage} isEvenRow={index%2==0}/>
             ));
         return (
             <div className="filterableDisplayListContainer">

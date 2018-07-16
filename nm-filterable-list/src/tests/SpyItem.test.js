@@ -17,6 +17,6 @@ it("should render the item's primary text", () => {
     expect(shallowNode.contains(expectedCodeName)).toEqual(true);
 });
 
-it("should render the spy's country of origin", () => {
-    expect(shallowNode.contains(expectedCountryOfOrigin)).toEqual(true);
+it("should display the agent's avatar", () => {
+    expect(shallowNode.find("svg").length).toEqual(1);
 });
