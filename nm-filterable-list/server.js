@@ -18,18 +18,26 @@ let agents = [];
 ///Returns an array of objects of form:
 ///{ codeName: string, agentImage: svgElement }
 app.get('/api/agents', (req, res) => {
-  console.log("Made it into correct area!");
+  originNameTest();
   const agentsToGenerate = 10;
   let avatars = new Avatars(SpriteCollection);
-  res.send({ results: [
-    { codeName: "asdasd3", agentImage: avatars.create("asdasd1") },
-    { codeName: "asdasd1", agentImage: avatars.create("asdasd2") },
-    { codeName: "asdasd2", agentImage: avatars.create("asdasd3") }    
-  ]});
   // for(var i = 0; i < agentsToGenerate; ++i) {
   //   getRandomWord(res, agentsToGenerate);
   // }
 });
+
+var originNameTest = () => {
+  axios.get("https://r4pekivpz0.execute-api.us-east-2.amazonaws.com/default/retreiveAgentOriginAndName")
+    .then((result) => {
+      console.log("successful");
+      agents = result.body;
+      console.log(agents);
+    })
+    .catch((error) => {
+      console.log("There was an error");
+      console.log(error);
+    });
+}
 
 let avatars = new Avatars(SpriteCollection);
 function getRandomWord(res, agentsToGenerate) {

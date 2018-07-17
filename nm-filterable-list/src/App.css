@@ -27,6 +27,10 @@
   to { transform: rotate(360deg); }
 }
 
+.loadingMessage {
+  font-size: 2em;
+}
+
 .avatarContainer {
   position: relative;
   margin: auto;
@@ -71,14 +75,16 @@ svg {
 /* Small Screens */
 @media (max-width: 399px) {
   .spyItemContainer {
-    max-height: 100px;
-  }
-
-  .avatarContainer {
-    width:50%;
+    
   }
 
   .avatarContainer svg {
     height: 100px;
+  }
+}
+
+@media (max-width: 200px) {
+  .avatarContainer svg {
+    height: 50x;
   }
 }

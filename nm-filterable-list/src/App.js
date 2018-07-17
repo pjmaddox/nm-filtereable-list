@@ -34,7 +34,7 @@ class App extends Component {
   }
 
   render() {
-    let displayList = (this.state.isLoading? <CustomThrobber /> : <FilterableDisplayList displayList={this.state.itemList} />);
+    let displayListOrLoader = (this.state.isLoading? <CustomThrobber /> : <FilterableDisplayList displayList={this.state.itemList} />);
     return (
       <div className="App container">
         <header className="App-header row">
@@ -44,7 +44,7 @@ class App extends Component {
         </header>
         <div className="row">
           <div className="col-sm-12">
-            {displayList}
+            {displayListOrLoader}
           </div>
         </div>
       </div>
