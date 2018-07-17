@@ -21,6 +21,7 @@ class App extends Component {
 
     fetch('/api/agents')
       .then(res => {
+        console.log(res);
         return res.json();
       })
       .then(json => {
