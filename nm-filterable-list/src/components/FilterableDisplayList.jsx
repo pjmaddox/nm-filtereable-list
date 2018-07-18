@@ -1,11 +1,24 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import SpyItem from './SpyItem';
+import _ from 'lodash';
+import FilterInputWithCallBack from './FilterInputWithCallback';
 
 class FilterableDisplayList extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { filteredDisplayList: this.props.displayList };
+    }
+    updateFilteredList(newFilterString) {
+        this.setState({
+            filteredDisplayList: _.filter(this.props.displayList, (item) => {
+                return (item.country + item.name + item.codeName).toLowerCase().indexOf(newFilterString.toLowerCase()) >= 0;
+            })
+        });
+    }
     render() {
-        let things = (this.props.displayList.length===0)? <span>No items in the list based on your search parameters =(</span> 
-            : this.props.displayList.map((item, index) => (
+        let listItems = (this.state.filteredDisplayList.length===0)? <span>No items in the list based on your search parameters =(</span> 
+            : this.state.filteredDisplayList.map((item, index) => (
                 <SpyItem key={"item" + index} codeName={item.codeName} spyImage={item.agentImage} countryOfOrigin={item.country} fullName={item.name}/>
             ));
         return (
@@ -13,12 +26,12 @@ class FilterableDisplayList extends Component {
                 <div className="col-sm-12">
                     <div className="row">
                         <div className="col-sm-12">
-                            
+                            <FilterInputWithCallBack updateCallback={this.updateFilteredList.bind(this)} />
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-sm-12">
-                            {things}
+                            {listItems}
                         </div>
                     </div>
                 </div>

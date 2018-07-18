@@ -3,6 +3,7 @@ import './App.css';
 import FilterableDisplayList from './components/FilterableDisplayList';
 import CustomThrobber from './components/CustomThrobber';
 import _ from "lodash";
+import DoSomethingButton from "./components/DoSomethingButton.jsx";
 
 class App extends Component {
   constructor(props) {
@@ -20,15 +21,15 @@ class App extends Component {
   getNewAgentSet() {
     this.setState({isLoading: true});
 
-    fetch('/api/agents')
-      .then(res => {
-        console.log(res);
-        return res.json();
-      })
-      .then(json => {
-        console.log(json);
-        this.setAgentList(json.results);
-      });
+    // fetch('/api/agents')
+    //   .then(res => {
+    //     console.log(res);
+    //     return res.json();
+    //   })
+    //   .then(json => {
+    //     console.log(json);
+    //     this.setAgentList(json.results);
+    //   });
   }
 
   setAgentList(newAgents) {
@@ -38,6 +39,7 @@ class App extends Component {
 
   render() {
     let displayListOrLoader = (this.state.isLoading? <CustomThrobber /> : <FilterableDisplayList displayList={this.state.itemList} />);
+    let moreAgentsButton = (this.state.isLoading? "" : <DoSomethingButton buttonText={"Find More Agents"} somethingToDo={this.getNewAgentSet.bind(this)}/>);
     return (
       <div className="App container">
         <header className="App-header row">
@@ -47,7 +49,16 @@ class App extends Component {
         </header>
         <div className="row">
           <div className="col-sm-12">
-            {displayListOrLoader}
+            <div className="row">
+              <div className="col-sm-12">
+                {displayListOrLoader}
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-sm-12 right">
+                {moreAgentsButton}
+              </div>
+            </div>
           </div>
         </div>
       </div>

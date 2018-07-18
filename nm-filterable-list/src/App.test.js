@@ -4,6 +4,7 @@ import App from './App';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import FilterableDisplayList from './components/FilterableDisplayList.jsx'
+import CustomThrobber from './components/CustomThrobber.jsx'
 
 configure({ adapter: new Adapter() });
 
@@ -57,7 +58,7 @@ it("should begin without a display list, ie: not display a list when isLoading i
 });
 
 it("should change set the itemList to parameter when setAgentList is called", () => {
-  shallowNode.setAgentList(mockAgentData);
+  shallowNode.instance().setAgentList(mockAgentData);
 
   expect(shallowNode.state("itemList")).toEqual(mockAgentData);
 })
