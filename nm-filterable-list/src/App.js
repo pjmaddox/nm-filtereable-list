@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import FilterableDisplayList from './components/FilterableDisplayList';
 import CustomThrobber from './components/CustomThrobber';
+import _ from "lodash";
 
 class App extends Component {
   constructor(props) {
@@ -31,7 +32,8 @@ class App extends Component {
   }
 
   setAgentList(newAgents) {
-    this.setState({ itemList: newAgents, isLoading: false });
+    let sortedAgents = _.orderBy(newAgents, ['codeName'], ['asc']);
+    this.setState({ itemList: sortedAgents, isLoading: false });
   }
 
   render() {

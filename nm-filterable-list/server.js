@@ -30,6 +30,7 @@ var originNameTest = (res) => {
   axios.get("https://r4pekivpz0.execute-api.us-east-2.amazonaws.com/default/retreiveAgentOriginAndName")
     .then((result) => {
       console.log("successful");
+      console.log(result.data.agents);
       agents = result.data.agents;
       
       for(var i = 0; i < agentsToGenerate; ++i) {
@@ -50,6 +51,7 @@ function getRandomWord(res, agentsToGenerate) {
     .header("Accept", "application/json")
     .end(function (result) {
 
+      console.log(agents[wordReceivedCount]);
       agents[wordReceivedCount].codeName = result.body.word.toUpperCase();
       agents[wordReceivedCount].agentImage = avatars.create(result.body.word);
       ++wordReceivedCount;
