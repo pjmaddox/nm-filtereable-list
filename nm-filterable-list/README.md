@@ -28,7 +28,7 @@ You can ping the backend at: localhost:5000/api/agents
   * I wasn't sure if this would be considered cheating in terms of the requirement that we 'create a backend server' and 'a public api' but I really like AWS and Azure, so wrote part of the data generation here in AWS implemented as a Lambda function triggered by an API gateway call. I have left this open so you can call it as much as you want to get country / name combination lists as much as you like. I did grab some first/last name and country list files from census data and use them to implement this api.
 
 Things I wanted to add but didn't have time:
-  * Button to generate more agents
+  * npm test is currently broken unless you comment out the global async fetch command in getNewAgents() in App.js. This is a jest problem that I haven't had time to fix. All other tests are running great though. I encourage you to comment out the fetch and see,
   * Ability to select and "keep" an agent when generating more
   * Popper.js tutorial on how to use the keep button because popper is very flashy and fun
   * Automated End-to-end tests with cypress.io, actually haven't used cypress before, but it looks like it cleans up a lot of the overhead of each individual e2e test compared to say, selenium, so I was interested!
