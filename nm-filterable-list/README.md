@@ -34,3 +34,4 @@ Things I wanted to add but didn't have time:
   * Automated End-to-end tests with cypress.io, actually haven't used cypress before, but it looks like it cleans up a lot of the overhead of each individual e2e test compared to say, selenium, so I was interested!
   * Male/Female/Identicon agent images based on name or randomness
   * I wanted to incorporate react/router but I honestly couldn't think of a good reason to put it in other than to just have more pages which I think would have made the app less cool
+  * Update outdated packages to shore up security vulnerabilities. (update growl)
