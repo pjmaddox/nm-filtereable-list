@@ -1,4 +1,4 @@
-##Hey There! My Name is Patrick and this is the Secreg Agent Intellignce Database!
+##Hey There! My Name is Patrick and this is the Secreg Agent Intelligence Database!
 
 *Premise:*
 Welcome to the Super Secret Agent Intel Database!
