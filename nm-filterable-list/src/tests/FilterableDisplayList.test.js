@@ -29,7 +29,7 @@ it("should render one or more SpyItem's when displayList is not empty", () => {
 });
 
 it("should render one SpyItem's per display list item", () => {
-    let shallowNode = shallow(<FilterableDisplayList displayList={ [1, 2, 3] } />)
+    let shallowNode = shallow(<FilterableDisplayList displayList={ mockData } />)
 
     expect(shallowNode.find("SpyItem").length).toEqual(3);
 });

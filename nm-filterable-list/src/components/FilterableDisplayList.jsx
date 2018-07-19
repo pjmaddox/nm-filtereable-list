@@ -12,7 +12,7 @@ class FilterableDisplayList extends Component {
     updateFilteredList(newFilterString) {
         this.setState({
             filteredDisplayList: _.filter(this.props.displayList, (item) => {
-                return (item.country + item.name + item.codeName).toLowerCase().indexOf(newFilterString.toLowerCase()) >= 0;
+                return (item.country + item.name + item.codeName).replace(/\s/g, '').toLowerCase().includes(newFilterString.toLowerCase())
             })
         });
     }

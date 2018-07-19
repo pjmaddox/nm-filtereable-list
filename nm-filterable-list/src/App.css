@@ -49,6 +49,11 @@ svg {
   border: 1px solid black;
 }
 
+.filterInputWithCallBackContainer, .moreAgentsButtonContainer {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 /* Large Screens */
 @media (min-width: 800px) {
   .spyItemContainer {

@@ -5,14 +5,15 @@ class DoSomethingButton extends Component {
     render() {
         return (
             <div className="doSomethingBUttonContainer">
-                <input type="button" onClick={this.props.somethingToDo} />
+                <button onClick={this.props.somethingToDo} >{this.props.buttonText}</button>
             </div>
         );
     }
 };
 
 DoSomethingButton.propTypes = {
-    somethingToDo: PropTypes.func.isRequired
+    somethingToDo: PropTypes.func.isRequired,
+    buttonText: PropTypes.string.isRequired
 };
 
 export default DoSomethingButton;

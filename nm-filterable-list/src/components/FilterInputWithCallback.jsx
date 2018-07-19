@@ -8,14 +8,15 @@ class FilterInputWithCallBack extends Component {
         this.onUpdate = this.onUpdate.bind(this);
     }
     onUpdate(event) {
-        this.setState({currentText: event.target.value});
-        this.props.updateCallback(this.state.currentText);
+        let newText = event.target.value;
+        this.setState({currentText: newText});
+        this.props.updateCallback(newText);
     }
     render() {
         return (
             <div className="filterInputWithCallBackContainer row">
                 <div className="col-sm-12">
-                    <input type="text" value={this.state.currentText} onChange={this.onUpdate} />
+                    <input className="agentFilterInput" type="text" value={this.state.currentText} onChange={this.onUpdate} placeholder="Filter Agents Here" />
                 </div>
             </div>
         );

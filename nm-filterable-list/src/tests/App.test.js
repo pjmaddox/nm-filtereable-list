@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import App from '../App';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import FilterableDisplayList from './components/FilterableDisplayList.jsx'
-import CustomThrobber from './components/CustomThrobber.jsx'
+import FilterableDisplayList from '../components/FilterableDisplayList.jsx'
+import CustomThrobber from '../components/CustomThrobber.jsx'
 
 configure({ adapter: new Adapter() });
 
@@ -17,6 +17,7 @@ beforeEach(() => {
     { codeName: "agentCodeName2", agentImage: "agentImage2" },
     { codeName: "agentCodeName3", agentImage: "agentImage3" }
   ];
+  global.fetch = jest.fn();
 });
 
 it('renders without crashing', () => {

@@ -29,8 +29,7 @@ let agents = [];
 var originNameTest = (res) => {
   axios.get("https://r4pekivpz0.execute-api.us-east-2.amazonaws.com/default/retreiveAgentOriginAndName")
     .then((result) => {
-      console.log("successful");
-      console.log(result.data.agents);
+      console.log("AWS call successfully returned.");
       agents = result.data.agents;
       
       for(var i = 0; i < agentsToGenerate; ++i) {
@@ -38,7 +37,7 @@ var originNameTest = (res) => {
       }
     })
     .catch((error) => {
-      console.log("There was an error");
+      console.log("There was an error with the AWS API call.");
     });
 }
 
@@ -51,14 +50,28 @@ function getRandomWord(res, agentsToGenerate) {
     .header("Accept", "application/json")
     .end(function (result) {
 
-      console.log(agents[wordReceivedCount]);
+      if (result.code != 200) {
+        console.log("Unirest api not completed successfully.");
+        switch (result.code) {
+          case 400:
+            console.log();
+            break;
+          case 500:
+            console.log("500 Error from WordsAPi");
+          default:
+            console.log("There was an error with the WordsAPI. Hopefully it will be corrected soon");
+        }
+        res.send({ statusCode: 500, errorMessage: "There was an error with the WordsAPI. Hopefully it will be corrected soon" });
+      }
+      
       agents[wordReceivedCount].codeName = result.body.word.toUpperCase();
       agents[wordReceivedCount].agentImage = avatars.create(result.body.word);
       ++wordReceivedCount;
       
       if (wordReceivedCount == agentsToGenerate) {
-        res.send({results: agents});
+        res.send({statusCode:200, results: agents});
         agents = [];
+        wordReceivedCount = 0;
       }
   });
 }
