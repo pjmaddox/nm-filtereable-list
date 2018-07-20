@@ -5,18 +5,18 @@ import SpyProfileRow from '../components/SpyProfileRow.jsx';
 
 configure({ adapter: new Adapter() });
 
-let shallowNode, expectedCountryOfOrigin, expectedCodeName;
+let shallowNode, expectedRowLabel, expectedRowValue;
 
 beforeEach(() => {
-    expectedCodeName = "007";
-    expectedCountryOfOrigin = "Great Britain";
-    shallowNode = shallow(<SpyProfileRow codeName={expectedCodeName} countryOfOrigin={expectedCountryOfOrigin}/>);
+    expectedRowLabel = "Smurf Name";
+    expectedRowValue = "Smurftrick";
+    shallowNode = shallow(<SpyProfileRow rowLabel={expectedRowLabel} rowValue={expectedRowValue}/>);
 });
 
-it("should render the country of origin", () => {
-    expect(shallowNode.contains(expectedCountryOfOrigin)).toEqual(true);
+it("should render the label", () => {
+    expect(shallowNode.contains(expectedRowLabel)).toEqual(true);
 });
 
-it("should render the codeName", () => {
-    expect(shallowNode.contains(expectedCodeName)).toEqual(true);
+it("should render the value", () => {
+    expect(shallowNode.contains(expectedRowValue)).toEqual(true);
 });

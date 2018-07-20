@@ -17,10 +17,14 @@ class FilterableDisplayList extends Component {
         });
     }
     render() {
-        let listItems = (this.state.filteredDisplayList.length===0)? <span>No items in the list based on your search parameters =(</span> 
-            : this.state.filteredDisplayList.map((item, index) => (
+        let listItems;
+        if (this.state.filteredDisplayList.length===0) {
+            listItems = <span>No items in the list based on your search parameters =(</span>;
+        } else {
+            listItems = this.state.filteredDisplayList.map((item, index) => (
                 <SpyItem key={"item" + index} codeName={item.codeName} spyImage={item.agentImage} countryOfOrigin={item.country} fullName={item.name}/>
             ));
+        }
         return (
             <div className="filterableDisplayListContainer row">
                 <div className="col-sm-12">

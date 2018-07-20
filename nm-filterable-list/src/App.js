@@ -4,6 +4,7 @@ import FilterableDisplayList from './components/FilterableDisplayList';
 import CustomThrobber from './components/CustomThrobber';
 import _ from "lodash";
 import DoSomethingButton from "./components/DoSomethingButton.jsx";
+import GetAgentFunction from "./services/AgentService.js";
 
 class App extends Component {
   constructor(props) {
@@ -19,20 +20,16 @@ class App extends Component {
     this.getNewAgentSet();
   }
 
-  getNewAgentSet() {
+  getNewAgentSet = async () => {
     this.setState({isLoading: true, inError: false});
 
-    fetch('/api/agents')
-      .then(res => {
-        return res.json();
-      })
-      .then(json => {
-        if (json.statusCode != 200) {
-          this.setState({inError: true});
-        } else {
-          this.setAgentList(json.results);
-        }
-      });
+    const response = await GetAgentFunction();
+
+    if (response.statusCode != 200) {
+      this.setState({inError: true});
+    } else {
+      this.setAgentList(response.results);
+    }
   }
 
   setAgentList(newAgents) {

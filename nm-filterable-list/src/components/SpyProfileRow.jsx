@@ -5,10 +5,10 @@ class SpyProfileRow extends Component {
     render() {
         return (
             <div className="spyProfileRowContainer row">
-                <div className="col-sm-6">
+                <div className="col-sm-6 profileRowLabel">
                     { this.props.rowLabel }
                 </div>
-                <div className="col-sm-6">
+                <div className="col-sm-6 profileRowValue">
                     { this.props.rowValue }
                 </div>
             </div>

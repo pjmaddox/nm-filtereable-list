@@ -38,19 +38,19 @@ it("should render one FilterInputWithCallBack", () => {
     expect(shallowNode.find("FilterInputWithCallBack").length).toEqual(1);
 });
 
-it("should display items when matched filtered text with country", () => {
+it("should display items when matched filtered text with countryOfOrigin", () => {
     shallowNode.instance().updateFilteredList("Japan");
     expect(shallowNode.state("filteredDisplayList").length).toEqual(2);
-    expect(shallowNode.contains(<SpyItem agentImage={"someImage2"} name={"The Amazin George"} country={"Japan"} codeName={"Golden Axe"}  />));
-    expect(shallowNode.contains(<SpyItem agentImage={"someImage3"} name={"Fitz Ferdinand"} country={"Japan"} codeName={"Ogre Battle 64"}  />));
+    expect(shallowNode.contains(<SpyItem spyImage={"someImage2"} fullName={"The Amazin George"} countryOfOrigin={"Japan"} codeName={"Golden Axe"}  />));
+    expect(shallowNode.contains(<SpyItem spyImage={"someImage3"} fullName={"Fitz Ferdinand"} countryOfOrigin={"Japan"} codeName={"Ogre Battle 64"}  />));
 });
 
-it("should display items when matched filteredText for country, non-case-sensitive", () => {
+it("should display items when matched filteredText for countryOfOrigin, non-case-sensitive", () => {
     shallowNode.instance().updateFilteredList("JAPAN");
 
     expect(shallowNode.state("filteredDisplayList").length).toEqual(2);
-    expect(shallowNode.contains(<SpyItem agentImage={"someImage2"} name={"The Amazin George"} country={"Japan"} codeName={"Golden Axe"}  />));
-    expect(shallowNode.contains(<SpyItem agentImage={"someImage3"} name={"Fitz Ferdinand"} country={"Japan"} codeName={"Ogre Battle 64"}  />));
+    expect(shallowNode.contains(<SpyItem spyImage={"someImage2"} fullName={"The Amazin George"} countryOfOrigin={"Japan"} codeName={"Golden Axe"}  />));
+    expect(shallowNode.contains(<SpyItem spyImage={"someImage3"} fullName={"Fitz Ferdinand"} countryOfOrigin={"Japan"} codeName={"Ogre Battle 64"}  />));
 });
 
 
@@ -58,23 +58,23 @@ it("should display items when matched filteredText for codeName, non-case-sensit
     shallowNode.instance().updateFilteredList("GOLDEN");
 
     expect(shallowNode.state("filteredDisplayList").length).toEqual(2);
-    expect(shallowNode.contains(<SpyItem agentImage={"someImage2"} name={"The Amazin George"} country={"Japan"} codeName={"Golden Axe"}  />));
-    expect(shallowNode.contains(<SpyItem agentImage={"someImage1"} name={"Torts Malone"} country={"Germany"} codeName={"Binding Of Isaac: Golden"}  />));
+    expect(shallowNode.contains(<SpyItem spyImage={"someImage2"} fullName={"The Amazin George"} countryOfOrigin={"Japan"} codeName={"Golden Axe"}  />));
+    expect(shallowNode.contains(<SpyItem spyImage={"someImage1"} fullName={"Torts Malone"} countryOfOrigin={"Germany"} codeName={"Binding Of Isaac: Golden"}  />));
 });
 
-it("should display items when matched filteredText for name, non-case-sensitive", () => {
+it("should display items when matched filteredText for fullName, non-case-sensitive", () => {
     shallowNode.instance().updateFilteredList("OR");
 
     expect(shallowNode.state("filteredDisplayList").length).toEqual(2);
-    expect(shallowNode.contains(<SpyItem agentImage={"someImage2"} name={"The Amazin George"} country={"Japan"} codeName={"Golden Axe"}  />));
-    expect(shallowNode.contains(<SpyItem agentImage={"someImage1"} name={"Torts Malone"} country={"Germany"} codeName={"Binding Of Isaac: Golden"}  />));
+    expect(shallowNode.contains(<SpyItem spyImage={"someImage2"} fullName={"The Amazin George"} countryOfOrigin={"Japan"} codeName={"Golden Axe"}  />));
+    expect(shallowNode.contains(<SpyItem spyImage={"someImage1"} fullName={"Torts Malone"} countryOfOrigin={"Germany"} codeName={"Binding Of Isaac: Golden"}  />));
 });
 
 it("should display all items when matched filteredText is empty", () => {
     shallowNode.instance().updateFilteredList("");
 
     expect(shallowNode.state("filteredDisplayList").length).toEqual(3);
-    expect(shallowNode.contains(<SpyItem agentImage={"someImage3"} name={"Fitz Ferdinand"} country={"Japan"} codeName={"Ogre Battle 64"}  />));
-    expect(shallowNode.contains(<SpyItem agentImage={"someImage2"} name={"The Amazin George"} country={"Japan"} codeName={"Golden Axe"}  />));
-    expect(shallowNode.contains(<SpyItem agentImage={"someImage1"} name={"Torts Malone"} country={"Germany"} codeName={"Binding Of Isaac: Golden"}  />));
+    expect(shallowNode.contains(<SpyItem spyImage={"someImage3"} fullName={"Fitz Ferdinand"} countryOfOrigin={"Japan"} codeName={"Ogre Battle 64"}  />));
+    expect(shallowNode.contains(<SpyItem spyImage={"someImage2"} fullName={"The Amazin George"} countryOfOrigin={"Japan"} codeName={"Golden Axe"}  />));
+    expect(shallowNode.contains(<SpyItem spyImage={"someImage1"} fullName={"Torts Malone"} countryOfOrigin={"Germany"} codeName={"Binding Of Isaac: Golden"}  />));
 });
